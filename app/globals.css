@@ -1,0 +1,132 @@
+:root {
+  --primary: #61abd6;
+  --accent: #4fa34d;
+  --dark: #0f2f3a;
+  --light: #f4f9fc;
+  --text: #2c2c2c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px;
+}
+
+.header {
+  background: white;
+  border-bottom: 4px solid var(--primary);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav a {
+  margin-left: 20px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.footer {
+  background: var(--dark);
+  color: #ffffff;
+  margin-top: 60px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer h4 {
+  color: var(--primary);
+}
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    #8ccae6
+  );
+  color: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 10px;
+  border-left: 6px solid var(--primary);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+.about-section,
+.products-section,
+.why-us-section,
+.community-section {
+  margin-top: 40px;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  border-left: 6px solid var(--primary);
+}
+
+.about-section h2,
+.products-section h2,
+.why-us-section h2,
+.community-section h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.products-section ul,
+.why-us-section ul {
+  margin-left: 20px;
+}
+
+.products-section li,
+.why-us-section li {
+  margin-bottom: 8px;
+}
+
