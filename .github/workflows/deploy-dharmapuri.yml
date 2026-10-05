@@ -1,0 +1,68 @@
+# Dharmapuri website → S3 + CloudFront (enable after AWS CloudFront account verification).
+# Temporary: indra-insessor/AavinDharmapuriWebsite @ main
+name: Deploy Dharmapuri Website
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: aavin-dharmapuri-website-production
+  cancel-in-progress: true
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: ap-south-1
+  AWS_ROLE_ARN: arn:aws:iam::911008223476:role/aavin-dharmapuri-prod-website-gha
+  S3_BUCKET: aavin-dharmapuri-prod-website
+  CLOUDFRONT_DISTRIBUTION_ID: "" # fill after enable_website=true terraform apply
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Guard — CloudFront must be enabled
+        run: |
+          if [ -z "${CLOUDFRONT_DISTRIBUTION_ID}" ]; then
+            echo "Website CloudFront is not enabled yet (account verification pending)."
+            echo "Set CLOUDFRONT_DISTRIBUTION_ID in this workflow after terraform enable_website=true."
+            exit 1
+          fi
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install and build static export
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+          if [ ! -d out ]; then
+            echo "Expected Next.js static export in out/ (output: 'export' in next.config)."
+            exit 1
+          fi
+
+      - name: Sync to S3 and invalidate CloudFront
+        run: |
+          set -euo pipefail
+          aws s3 sync out/ "s3://${S3_BUCKET}/" --delete
+          aws cloudfront create-invalidation \
+            --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" \
+            --paths "/*"
