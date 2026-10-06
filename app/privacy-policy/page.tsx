@@ -8,9 +8,9 @@ export default function PrivacyPolicyPage() {
       </p>
 
       <ul>
-        <li><strong>Website:</strong> https://www.aavindharmapuri.org</li>
-        <li><strong>Master Booth Agent Portal:</strong> https://agent.aavindharmapuri.org</li>
-        <li><strong>Mobile Application:</strong> “Aavin Dharmapuri App”</li>
+        <li><strong>Website:</strong> https://aavindharmapuri.in</li>
+        <li><strong>Master Booth Agent Portal:</strong> https://agent.aavindharmapuri.in</li>
+        <li><strong>Mobile Application:</strong> "Aavin Agent.AI"</li>
       </ul>
 
       <p>
@@ -72,7 +72,7 @@ export default function PrivacyPolicyPage() {
       <p>
         Sub Booth Agents may submit order requests via the mobile application.
         These requests are visible to their respective Master Booth Agents on
-        https://agent.aavindharmapuri.org.
+        https://agent.aavindharmapuri.in.
       </p>
 
       <p>
@@ -188,7 +188,7 @@ export default function PrivacyPolicyPage() {
           This Privacy Policy may be updated from time to time.
           Continued use of the Platform constitutes acceptance of the revised policy.
         </p>
-        <p><strong>Effective Date:</strong> 10 December 2025</p>
+        <p><strong>Effective Date:</strong> 5 October 2026</p>
       </footer>
     </>
   );

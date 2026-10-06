@@ -12,7 +12,6 @@ export default function Footer() {
 
         <div>
           <p>Email: gmaavindharmapuri@gmail.com</p>
-          <p>Email: support@aavindharmapuri.org</p>
           <p>© {new Date().getFullYear()} Aavin Dharmapuri</p>
         </div>
       </div>

@@ -7,9 +7,9 @@ export default function TermsPage() {
         This Terms & Conditions applies to:
       </p>
  <ul>
-        <li><strong>Website:</strong> https://www.aavindharmapuri.org</li>
-        <li><strong>Master Booth Agent Portal:</strong> https://agent.aavindharmapuri.org</li>
-        <li><strong>Mobile Application:</strong> “Aavin Dharmapuri App”</li>
+        <li><strong>Website:</strong> https://aavindharmapuri.in</li>
+        <li><strong>Master Booth Agent Portal:</strong> https://agent.aavindharmapuri.in</li>
+        <li><strong>Mobile Application:</strong> "Aavin Agent.AI"</li>
       </ul>
 
  <p>
@@ -207,7 +207,7 @@ export default function TermsPage() {
   <p>
     These Terms & Conditions are effective from the date mentioned below.
   </p>
-  <p><strong>Effective Date:</strong> 10 December 2025</p>
+  <p><strong>Effective Date:</strong> 5 October 2026</p>
 </footer>
 
 
